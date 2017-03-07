@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/materialize.min.css" rel="stylesheet">
+    <link href="css/test.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/test.js" charset="utf-8"></script>
+    <title>Function</title>
+    <script type="text/javascript" charset="utf-8">
+        /*var k=10;
+        function test(){
+            this.k=20;
+        }
+            return sum.apply(this,[n1,n2]);
+
+         test();
+         alert(k);*/
+
+
+
+        //call(),和apply（）方法实例。
+        /*function sum(num1,num2){
+         return num1+num2;
+         }
+
+         function call1(n1,n2){
+         return sum.call(this,n1,n2);
+         }
+
+         function applay1(n1,n2){
+        }
+
+        alert(call1(10,20));
+        alert(applay1(10,30));*/
+
+        //扩充作用域
+
+        /*window.color='red';
+        var obj={color:'blue'};
+
+        function showcoloer(){
+            alert(this.color);
+        }
+
+        showcoloer.call(window);
+        showcoloer.call(obj);*/
+
+        var a = ~ 2015;
+        alert(a);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+<span id="it">内容</span> <a href="javascript:;"  onclick="change()">修改</a>
+
+<script>
+    change=function(){
+        var o=document.getElementById("it");
+        if(o.childNodes[0].value) {
+            o.innerHTML =  o.childNodes[0].value;
+        }else{
+
+            o.innerHTML="<input type='text' value='"+document.getElementById("it").innerHTML+"' />";
+        }
+    }
+</script>
+</body>
+</html>

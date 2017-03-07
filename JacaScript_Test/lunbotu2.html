@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>标签切换</title>
+    <script type="text/javascript" src="http://ohudong.cztv.com/1/240960/images/jquery-1.9.1.min.js?888"></script>
+    <style>
+        *{margin: 0;padding-top: 0}
+        .box{
+            width: 920px;
+            height: 250px;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+        .ul_box{
+            overflow: hidden;
+            height: 250px;
+            width: 920px;
+        }
+        ul{
+            list-style-type: none;
+            width: 1000000px;
+            height: 250px;
+            -webkit-padding-start:  0;
+
+        }
+        li{
+            float: left;
+            position: relative;
+            margin-right: 10px;
+            width:300px;
+            height: 450px;
+        }
+        .imgs{width:300px;height: 450px;}
+        .prev img,.next img{
+            position: absolute;
+            top: 85px;
+            cursor: pointer;
+            height: 100px;
+            width: 100px;
+        }
+        .prev img{left: -85px}
+        .next img{right: -85px}
+
+
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            $('#demo').bxCarousel({
+                move          : 1 ,
+                display_num   : 3 ,
+                speed         : 1000 ,
+                margin        : 10 ,
+                auto          : true ,
+                auto_interval : 0 ,
+                auto_dir      : 'next' ,
+                auto_hover    : false ,
+                next_text     : 'next' ,
+                next_image    : 'http://www.iconpng.com/png/essentials/right65.png' ,
+                prev_text     : 'prev' ,
+                prev_image    : 'http://www.iconpng.com/png/essentials/left46.png' ,
+                controls      : true
+            });
+        });
+    </script>
+    <script src = "js/lunbo.js"></script>
+
+
+</head>
+<body>
+
+
+<div class="box">
+    <!--<img class="prev" src = "http://www.iconpng.com/png/ios7_app_style/arrow_left.png" height = "79" width = "79"/>
+    <img class="next" src = "http://www.iconpng.com/png/ios7_app_style/arrow_right.png" height = "79" width = "79"/>-->
+    <div class="ul_box">
+        <ul id="demo">
+            <li ><img class="imgs" src = "http://img18.house365.com/newcms/2015/01/06/142053004254ab917aade9d.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img.pconline.com.cn/images/photoblog/8/1/5/8/8158262/20092/27/1235745341356.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img1.gtimg.com/henan/pics/hv1/52/91/1545/100486882.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1311/28/c49/29113474_1385654095258.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://dimg09.c-ctrip.com/images/tg/845/300/945/dde5a7571dc9433ea106ff3ca7272d69.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img3.xiangshu.com/Day_131223/45_778314_bce3674e2f7a220.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://userimg.qunar.com/imgs/201201/19/JhS1_t5oKm-cb0SeJ720.jpg?ex_track=bd_ditu" alt = ""></li>
+            <li ><img class="imgs" src = "http://www.fang33.com/upload/image/20150909/1441787499828_z.png" alt = ""></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

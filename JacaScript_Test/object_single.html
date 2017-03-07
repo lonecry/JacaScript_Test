@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link type="image/x-icon" href="images/polo.jpg" rel="shortcut icon">
+    <link href="css/test.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/test.js" charset="utf-8"></script>
+    <title>object_single</title>
+    <script type="text/javascript" charset="utf-8">
+        /*var url='http://satan.picp.net';
+        var str1=encodeURI(url);
+        var str2=encodeURIComponent(url);
+        alert(str2);*/
+        /*var str="{name:'张三',age:20}";
+        var arr=eval('('+str+')');
+        alert(arr.name+' is '+arr.age+' years old!');*/
+
+        /*var num1=parseInt('10');
+        var num2=parseFloat('20.2');
+        alert(num1+'    '+num2);
+        alert(typeof  num1);
+        alert(typeof  num2);*/
+
+        //escape & unescape 解码编码
+
+        /*var str1="孙文";
+        var s=escape(str1)
+        alert(s);
+        var s2=unescape(s);
+        alert(s2);*/
+
+        //isNaN  is not a number 判断这个是不是number类型 ，不是number返回true
+        //NaN 是自己和自己不相等的
+        /*var num1=10;
+        var num2='abc';
+        alert(isNaN(num1));
+        alert(isNaN(num2));*/
+        var date=new Date();
+        var year=date.getUTCFullYear();
+        var month=date.getMonth()+1;
+        var day=date.getDate();
+        var xx=date.getDay();
+        var hour=date.getHours();
+        var min=date.getMinutes();
+        var sec=date.getSeconds();
+        document.write('今天是：'+year+'年'+month+'月'+day+'日 '+hour+'时'+min+'分'+sec+'秒!');
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>

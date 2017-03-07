@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>标签切换</title>
+    <script type="text/javascript" src="http://ohudong.cztv.com/1/240960/images/jquery-1.9.1.min.js?888"></script>
+    <style>
+        *{margin: 0;padding-top: 0}
+        .box{
+            width: 920px;
+            height: 250px;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+        .ul_box{
+            overflow: hidden;
+            height: 250px;
+            width: 920px;
+            border: 1px solid saddlebrown;
+        }
+        ul{
+            list-style-type: none;
+            width: 1000000px;
+            height: 250px;
+            -webkit-padding-start:  0;
+
+        }
+        li{
+            float: left;
+            position: relative;
+            margin-right: 10px;
+            width:300px;
+            height: 450px;
+        }
+        .imgs{width:300px;height: 450px;}
+        .left,.right{
+            position: absolute;
+            top: 85px;
+            cursor: pointer;
+        }
+        .left{left: -85px}
+        .right{right: -85px}
+
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="box">
+    <img class="left" src = "http://www.iconpng.com/png/ios7_app_style/arrow_left.png" height = "79" width = "79"/>
+    <img class="right" src = "http://www.iconpng.com/png/ios7_app_style/arrow_right.png" height = "79" width = "79"/>
+    <div class="ul_box">
+        <ul>
+            <li ><img class="imgs" src = "http://img18.house365.com/newcms/2015/01/06/142053004254ab917aade9d.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img.pconline.com.cn/images/photoblog/8/1/5/8/8158262/20092/27/1235745341356.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img1.gtimg.com/henan/pics/hv1/52/91/1545/100486882.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1311/28/c49/29113474_1385654095258.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://dimg09.c-ctrip.com/images/tg/845/300/945/dde5a7571dc9433ea106ff3ca7272d69.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://img3.xiangshu.com/Day_131223/45_778314_bce3674e2f7a220.jpg" alt = ""></li>
+            <li ><img class="imgs" src = "http://userimg.qunar.com/imgs/201201/19/JhS1_t5oKm-cb0SeJ720.jpg?ex_track=bd_ditu" alt = ""></li>
+            <li ><img class="imgs" src = "http://www.fang33.com/upload/image/20150909/1441787499828_z.png" alt = ""></li>
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+
+    $(document).ready(function (  ) {
+
+        /*
+         1、CSS的样式可以根据需要修改，
+         2、ul外层的div要套一个overflow：hidden
+         3、ul的宽度一定要大于所有li的总和的宽度
+         4、li左浮动，float：left,position:relative
+         5、author:Sun Wen
+         */
+
+        var now = 0;                                                    //活动窗口的li 的索引
+        var px=0;                                                       //当前移动的位置
+        var li=$( 'li' );                                               //所有的li节点
+        var li_length = li.length;                                      //li节点的长度
+        var goleft=$( '.left' );                                        //左边按钮
+        var goright=$( '.right' );                                      //右边按钮
+        goleft.on('click', leftclick);                                  //左边按钮添加事件
+        goright.on('click',rightclick);                                 //右边按钮事件
+
+
+        function leftclick() {
+            //避免重复点击，事件触发之后，所有事件解绑
+            goleft.unbind('click');
+            goright.unbind('click');
+            if(now==0){
+                //重新绑定事件
+                setTimeout(function (  ) {
+                    goleft.on('click', leftclick);
+                    goright.on('click',rightclick );
+                },350);
+            }else{
+                px+=930 ;               //一次移动930px,整个滑动窗口的宽度。
+                pxreal=px+'px';
+                li.animate( {
+                    left:pxreal
+                } ,350);
+                //动画执行完毕，重新绑定事件
+                setTimeout(function (  ) {
+                    goleft.on('click', leftclick);
+                    goright.on('click',rightclick);
+                    now=now-3;         //3 表示每一次移动的li的个数，用来改变当前位置的索引
+                },350);
+            }
+        }
+        function rightclick()  {
+            //往左边移动三个单位的li
+            //避免重复点击，事件触发之后，所有事件解绑
+            goleft.unbind('click');
+            goright.unbind('click');
+            if ( 0 < (li_length - now) && (li_length - now) <= 3 ) {
+                setTimeout(function (  ) {
+                    goleft.on('click', leftclick);
+                    goright.on('click',rightclick);
+                },350);
+            }
+            else {
+                px-=930 ;
+                pxreal=px+'px';
+                li.animate( {
+                    left:pxreal
+                } ,350);
+                //动画执行完毕，重新绑定事件
+                setTimeout(function (  ) {
+                    goleft.on('click', leftclick);
+                    goright.on('click',rightclick);
+                    now = now + 3;
+                },350);
+            }
+        }
+    })
+</script>
+</html>

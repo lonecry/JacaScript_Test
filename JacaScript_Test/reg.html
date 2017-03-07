@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <title>Search</title>
+    <style type="text/css" >
+        *{
+            margin-left: 50px;
+            margin-top: 10px;
+        }
+    </style>
+    <script type="text/javascript" charset="UTF-8">
+        /*var str='abcdef';
+        alert(str.search('b'));
+        alert(str.substring(0,2));
+        alert(str.charAt(2));*/
+
+
+        /*var str="12 fff 87 ver334 233 -=-==fa80";*/
+        /*正则表达式*/
+        /* alert(str.match(/\d+/g));*/
+        /*var temp = '';
+        var arr  = [];
+        for(var i=0;i<str.length;i++)
+        {
+            if(str.charAt(i)>='0'&&str.charAt(i)<='9')
+            {
+                temp+=str.charAt(i);
+            }
+            else
+            {
+                if (temp)
+                {
+                    arr.push(temp);
+                    temp='';
+                }
+            }
+        }
+        if (temp)
+        {
+            arr.push(temp);
+            temp='';
+        }
+        alert(arr);*/
+
+
+        var a='100adc';
+        alert(Number(a));
+    </script>
+    <script type="text/javascript" charset="UTF-8">
+        window.onload = function(){
+            var t1=document.getElementById("text");
+            var btn=document.getElementById("button");
+
+            btn.onclick=function(){
+                var re=/^\w+@[a-z0-9]+\.[a-z0-9]+$/i;
+                var reg=/^\d(\.\d)?折$/;
+                var flag=reg.test(t1.value);
+
+
+                if(flag)
+                {
+                    alert("正确！");
+                }
+                else
+                {
+                    alert("你丫的写错了！");
+                }
+
+            };
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <input type="text" id="text" placeholder=""/><br>
+    <button id="button">验证</button>
+</body>
+</html>

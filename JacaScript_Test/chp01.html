@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link type="image/x-icon" href="images/polo.jpg" rel="shortcut icon">
+    <link href="css/materialize.min.css" rel="stylesheet">
+    <link href="css/test.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/test.js" charset="utf-8"></script>
+    <title>JavaScript_Test</title>
+</head>
+<body>
+<div class="parallax-container">
+    <div class="parallax"><img src="images/parallax1.jpg"></div>
+</div>
+</body>
+<script type="text/javascript">
+
+    　 /*
+        push 和　pop方法
+        */
+
+//
+//                var arr=[new Date(),false];
+//
+//                //push 方法 往里面f塞元素
+//                var result=arr.push(1,2,true);  //push方法的返回值是新数组的元素个数
+//                alert(arr);
+//                alert(result);
+//
+//                //pop 方法从何数组的移除元素
+//                var result2=arr.pop();
+//                alert(arr);
+//                alert(result2);                 //pop方法返回值是被移除的数组元素*/
+
+       /*unshife和shift方法*/
+
+
+
+//                var arr=[1,2,3,new Date()];
+//                var len=arr.unshift(0,false);           //unshift 是在数组的头部插入元素，返回的是数组的长度
+//                alert(arr);
+//                alert(len);
+
+
+//                var arr=[1,2,3,new Date()];
+//                  var len=arr.shift();           //shift 是在数组的头部移除元素，返回的是被移除的元素
+//                  alert(arr);
+//                  alert(len);
+
+      /*
+       splice和slice方法
+       第一个参数：起始位置
+       第二个参数：表示截取的个数
+       第三个以后：表示追加的新元素个数
+       12345  23 截掉 补上345
+       */
+
+//    var arr=[1,6,8,4,5];
+//    arr.splice(1,2,3,4,5);
+//    alert(arr);
+
+
+//    var arr=[1,2,3,4,5];
+//    var res=arr.slice(2,4);//左闭合右开区间
+//    alert(res);//不操作数组本身。返回截取内容
+
+
+
+    //contact join   不操作数组本身
+//    var arr1=[1,2,3];
+//    var arr2=[true,4,5];
+//    var res1=arr1.concat(arr2);
+//    var res2=arr2.concat(arr1);
+//    var res3=arr1.join(',0,');
+//    alert(res1);
+//    alert(res2);
+//    alert(res3);
+
+
+    var arr=[5,2,12,34,3]; //操作数组本身，an字符串排序
+    arr.sort(-1);
+    alert("恭喜你领取成功！稍后可以在个人中心查看积分！");
+    var arr2=arr.reverse();
+    alert(arr2);
+
+
+
+
+
+
+
+</script>
+</html>

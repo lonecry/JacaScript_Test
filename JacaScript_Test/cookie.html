@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/materialize.min.css" rel="stylesheet">
+    <title>首页</title>
+</head>
+<body>
+<script language="JavaScript" type="text/javascript">
+    //设置两个cookie
+    document.cookie="userId=828";
+    document.cookie="userName=hulk";
+    //获取cookie字符串
+    var strCookie=document.cookie;
+    //将多cookie切割为多个名/值对
+
+    var arrCookie=strCookie.split("; ");
+    alert(arrCookie);
+    var userId;
+    //遍历cookie数组，处理每个cookie对
+    for(var i=0;i<arrCookie.length;i++){
+        var arr=arrCookie[i].split("=");
+//找到名称为userId的cookie，并返回它的值
+        if("userId"==arr[0]){
+            userId=arr[1];
+            break;
+        }
+    }
+</script>
+
+这样就得到了单个cookie的值。
+
+用类似的方法，可以获取一个或多个cookie的值，其主要的技巧仍然是字符串和数组的相关操作。
+
+给cookie设置终止日期
+到现在为止，所有的cookie都是单会话cookie，即浏览器关闭后这些cookie将会丢失，事实上这些cookie仅仅是存储在内存中，而没有建立相应的硬盘文件。
+
+在实际开发中，cookie常常需要长期保存，例如保存用户登录的状态。这可以用下面的选项来实现：
+
+document.cookie="userId=828; expiress=GMT_String";
+其中GMT_String是以GMT格式表示的时间字符串，这条语句就是将userId这个cookie设置为GMT_String表示的过期时间，超过这个时间，cookie将消失，不可访问。例如：如果要将cookie设置为10天后过期，可以这样实现：
+复制代码 代码如下:
+
+<script language="JavaScript" type="text/javascript">
+    <!--
+    //获取当前时间
+    var date=new Date();
+    var expiresDays=10;
+    //将date设置为10天以后的时间
+    date.setTime(date.getTime()+expiresDays*24*3600*1000);
+    //将userId和userName两个cookie设置为10天后过期
+    document.cookie="userId=828; userName=hulk; expires="+date.toGMTString();
+    //-->
+</script>
+
+删除cookie
+为了删除一个cookie，可以将其过期时间设定为一个过去的时间，例如：
+复制代码 代码如下:
+
+<script language="JavaScript" type="text/javascript">
+    <!--
+    //获取当前时间
+    var date=new Date();
+    //将date设置为过去的时间
+    date.setTime(date.getTime()-10000);
+    //将userId这个cookie删除
+    document.cookie="userId=828; expires="+date.toGMTString();
+    //-->
+</script>
+</body>
+</html>

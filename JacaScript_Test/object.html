@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link type="image/x-icon" href="images/polo.jpg" rel="shortcut icon">
+    <link href="css/materialize.min.css" rel="stylesheet">
+    <link href="css/test.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/test.js" charset="utf-8"></script>
+    <title>JavaScript_Test</title>
+    <script type="text/javascript" charset="utf-8">
+        //Object 所有类的基础类
+
+        //var obj=new Object();
+        var obj={};//实例化对象
+
+        //给对象设置属性
+        obj.name='张三';
+        obj.age='25';
+        obj.sex='男';
+        obj['birthday']='1991-09-06';
+        obj.say=function(){
+            alert("你好我是对象！")
+        };
+
+        //访问对象的属性好方法。
+        //alert(obj.name+'  '+obj.age);
+        //obj.say();
+
+        //delete删除对象的属性或方法
+        //delete obj.age;
+        //delete obj.say;
+
+        //alert(obj.name);
+        //alert(obj.sex);
+        //obj.say();
+
+        //如何遍历一个js对象    for  in 语句式
+        /*for(var attr in obj){
+            alert(attr+" : "+obj[attr]);
+        }*/
+
+        //Constructor保存对象的创建函数
+        //alert(obj.constructor);
+
+        //hasOwnProperty(propertyName)用于检测给定属性在对象中是否存在。
+        //alert(obj.hasOwnProperty("sex"));//返回值是布尔类型
+
+        //obJ.isPrototypeOf()用于检测原型的
+
+        //obj.propertyIsEnumerable() 检测给定属性是否能被枚举
+        //alert(obj.propertyIsEnumerable('name'));
+
+
+    </script>
+</head>
+<body>
+<div style="background-color:red">
+    <p>这是一个段落。</p>
+    <button>请点击这里</button>
+</div>
+<script type="text/javascript">
+    var str = "adadfdfseffserfefsefseeeeeffffftsdg";
+    var maxLength = 0;
+    var result = "";
+    while(str!=''){
+        oldStr = str;
+        getStr = str.charAt(0);
+        str = str.replace(new RegExp(getStr,"g"),"");
+        if( oldStr.length-str.length > maxLength){
+            maxLength = oldStr.length-str.length;
+            result = getStr + "=" + maxLength;
+        }
+    }
+    alert(result);
+</script>
+</body>
+</html>

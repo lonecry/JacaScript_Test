@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/jquery.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 中文转码 -->
+    <script type="text/javascript">
+        function utf16to8(str) {
+            var out, i, len, c;
+            out = "";
+            len = str.length;
+            for (i = 0; i < len; i++) {
+                c = str.charCodeAt(i);
+                if ((c >= 0x0001) && (c <= 0x007F)) {
+                    out += str.charAt(i);
+                } else if (c > 0x07FF) {
+                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                } else {
+                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                }
+            }
+            return out;
+        }
+    </script>
+    <style type="text/css">
+        #qrcode_Table,#qrcode_Canvas{
+            margin-left: 150px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="output"></div>
+
+<p>二维码实例：</p>
+<p>1：Render in table</p>
+<div id="qrcode_Table"></div>
+<p>2：Render in canvas</p>
+<div id="qrcode_Canvas"></div>
+<div>
+</div>
+<script>
+    jQuery('#qrcode_Table').qrcode({size:'128', render: "canvas",correctLevel:0,text:utf16to8("http://www.baidu.com")});
+    jQuery('#qrcode_Canvas').qrcode({
+        text:utf16to8("http://www.baidu.com"),//二维码包含的内容，默认只支持英文内容,中文会乱码，通过utf16to8转码可支持中文
+        render: "canvas",//渲染方式可选择canvas或table，默认是canvas，canvas方式还支持右键图片下载
+        width: 128,//宽度，默认是256
+        height: 128,//高度，默认是256，建议宽度和高度保持一致，否则不容易被识别
+        typeNumber: -1,//计算模式，默认是-1
+        //correctLevel: QRErrorCorrectLevel.H,//纠错等级，默认是QRErrorCorrectLevel.H，但是加上correctLevel这一行后无法渲染出二维码
+        background: "#ffffff",//背景颜色，默认是白色
+        foreground: "#000000"//前景颜色，默认是黑色
+    });
+</script>
+</body>
+</html>

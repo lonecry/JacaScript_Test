@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <title>Tests</title>
+    <script type="text/javascript" charset="utf-8">
+        /*function main(callback)
+        {
+            alert("I am main function");
+            alert("Invoke callback function..");
+            callback();
+        }
+        function b(){
+            alert("I am callback function: b");
+        }
+        function c(){
+            alert("I am callback function: c");
+        }
+
+        function test() {
+            main(b);
+            main(c);
+        }*/
+
+
+        function searchTwitter(term, onload, onerror) {   /*三个参数，其中一个回调函数*/
+
+            var xhr, results, url;
+            url = 'http://search.twitter.com/search.json?rpp=100&q=' + term;
+            xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+
+            xhr.onload = function (e) {
+                if (this.status === 200) {
+                    results = JSON.parse(this.responseText);
+                    onload(results);
+                }
+            };
+
+            xhr.onerror = function (e) {
+                onerror(e);
+            };
+
+            xhr.send();
+        }
+
+        function handleError(error) {
+            /* handle the error */
+        }
+
+        function concatResults() {
+            /* order tweets by date */
+        }
+
+        function loadTweets() {
+            var container = document.getElementById('container');
+
+            searchTwitter('#IE10', function (data1) {
+                searchTwitter('#IE9', function (data2) {
+                    /* Reshuffle due to date */
+                    var totalResults = concatResults(data1.results, data2.results);
+                    totalResults.forEach(function (tweet) {
+                        var el = document.createElement('li');
+                        el.innerText = tweet.text;
+                        container.appendChild(el);
+                    });
+                }, handleError);
+            }, handleError);
+        }
+
+    </script>
+</head>
+<body>
+<body>
+<button onClick="test()">click me</button>
+</body>
+</body>
+</html>

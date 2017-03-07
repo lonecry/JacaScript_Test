@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <title>无标题文档</title>
+    <style type="text/css">
+        <!--
+        *{margin:0;padding:0;}
+        .header{
+            width: 100%;
+            height: 50px;
+            background-color: rgba(254, 157, 96, 0.37);
+        }
+        .content{
+            width: 100%;
+            height: 500px;
+            background-color: rgba(206, 147, 254, 0.37);
+        }
+        .footer{
+            width: 100%;
+            height: 50px;
+            background-color: rgba(176, 254, 163, 0.37);
+        }
+    </style>
+    <script language="javascript" type="text/javascript">
+        window.onload = function(){
+            var bodyHeight =$(document.body).height() ;//获取文档的的高度
+            var windowHeight = $(window).height();    //获取窗口的的高度
+            var footer = document.getElementById("footer");
+
+
+            if(windowHeight>bodyHeight ){
+                footer.style.position = "absolute";         //文档高度小于窗口高度时，给footer绝对定位。position:absolute;bottom:0;
+                footer.style.bottom = "0"
+            }
+            else{
+                footer.style.positon = "";
+                footer.style.bottom = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class=" header" >头头头头头头头头头头头头头</div>
+    <div class=" content">身身身身身身身身身身身身身</div>
+    <div class=" footer" id="footer" >脚脚脚脚脚脚脚脚脚脚脚脚脚</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 对象</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" charset="UTF-8">
+    /*//第一种方式，工厂模式。
+         function createPerson(name,age){
+            var obj = {};
+            obj.name = name;
+            obj.age  = age;
+            obj.sayName = function (){
+                alert("你好啊，我是 sayName方法！");
+            };
+            return obj;
+        }
+
+        var p1 = createPerson('张三',20);
+        p1.sayName();
+
+
+    //构造函数式
+        //类的模板
+        var Person = function(name,age){
+            this.name = name;
+            this.age  = age;
+            this.sayName = function(){
+                alert(this.age)
+            };
+        };
+
+        //构造一个对象 new 关键字 传递参数，返回对象
+        var p2 =new Person('李四',20);
+        p2.sayName();*/
+
+
+    //函数原型
+        function Person2(){
+        }
+        var Obj = Person2.prototype;
+        Obj.name = '张三疯';
+        Obj.age  = 20;
+        Obj.sayName=function(){ alert(this.name);
+        };
+
+        /*对象实例化*/
+        var p3= new Person2();
+
+        //实例对象获取原型对象
+
+        /*
+         var prototypeObj = Object.getPrototypeOf(p3);
+         alert(prototypeObj == Person2.prototype);
+         */
+
+
+
+    //p3.name = '李四也疯了';
+        alert(p3.name);
+
+        /*判断一个对象属性 是属于原型属性 还是属于势力属性！*/
+        //alert(p3.hasOwnProperty("name"));
+
+        /*in 操作符 判断属性是不是属于原型对象或者势力对象中！*/
+        alert('name' in p3); //true
+        p3.name = '赵武也疯了';
+        p3.age = 30;
+
+        alert('name' in p3); //true
+
+
+        /*ECMA5 新属性。Object.keys() 获取对象的所有属性。Object.keys(p3.prototype) 原型对象的所哟属性*/
+        alert(Object.keys(p3));
+        alert(Object.keys(Person2.prototype));
+
+
+
+
+
+
+    </script>
+<body>
+</body>
+</html>
+

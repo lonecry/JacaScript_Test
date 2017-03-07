@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="css/css3.css" rel="stylesheet">
+    <style type="text/css">
+    </style>
+    <title>js设计模式-单体模式</title>
+</head>
+<body>
+<div class="radius">
+    <div class="center">12</div>
+</div>
+<footer class="footer">
+    <div class="footerspan">我是footer</div>
+</footer>
+</body>
+<script>
+    var sw = {};
+    sw.singleton = {
+        attr1:true,
+        method:function(){
+            console.log("我是单例模式！")
+        }
+    };
+    sw.singleton.method();
+</script>
+</html>
