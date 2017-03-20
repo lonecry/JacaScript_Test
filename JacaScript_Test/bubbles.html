@@ -6,9 +6,7 @@
     <link href = "css/bootstrap.css" rel = "stylesheet">
     <script src = "js/jquery.min.js"></script>
     <script src = "js/bootstrap.js"></script>
-    <script src = "js/random.js"></script>
     <style type = "text/css">
-        
         .container {
             width: 1000px;
             height: 500px;
@@ -26,16 +24,34 @@
             -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%;
             float: left;
             border: 1px solid white;
-            
         }
     </style>
-    <title></title>
+    
+    <title>随机气泡分布-多线程</title>
 </head>
 <body>
 <div class = "container">
     <div class = "items t1"></div>
     <div class = "items t1"></div>
     <div class = "items t1"></div>
+    <div class = "items t1"></div>
+    <div class = "items t1"></div>
+    <div class = "items t1"></div>
 </div>
+<script>
+    var worker = new Worker('./js/bubbleworker.js');
+    var itemslengh = $('.items').length;
+    worker.postMessage(itemslengh);
+    worker.onmessage = function(data){
+        for(var i=0;i<data.data.length;i++){
+            var x = data.data[i][0];
+            var y = data.data[i][1];
+            $('.items:eq(' + i + ')').css({
+                'position':'absolute','left':x + 'px','top':y + 'px'
+            })
+        }
+        
+    }
+</script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+$color: #blue;
+.box{
+  width: 80%;
+  margin: 0 auto;
+  background-color: $color;
+  height: 600px;
+  position: relative;
+  .header{
+    width: 100%;
+    height: 100px;
+    background-color: #dcb53c;
+  }
+  .footer{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    .footerleft{
+      width: 20%;
+      height: 500px;
+      background-color: #00dcc0; float: left;
+    }
+    .footerright{
+      width: 80%;
+      height: 500px;
+      background-color: #dc2629;
+      float: left;
+    }
+  }
+}

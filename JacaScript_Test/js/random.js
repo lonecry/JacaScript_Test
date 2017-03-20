@@ -17,7 +17,7 @@ $(document).ready(function(){
             position.push(relxy);
             $('.items:eq(' + i + ')').css({
                 'position':'absolute','left':x + 'px','top':y + 'px'
-            })
+            });
             console.log(position);
         }else{
 
